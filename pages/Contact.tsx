@@ -41,10 +41,9 @@ export const Contact: React.FC = () => {
                 <Mail size={28} />
               </div>
               <h3 className="text-lg font-bold text-brand-oxford dark:text-white mb-2">{t('contact.emailUs')}</h3>
-              <p className="text-slate-500 dark:text-slate-400 text-sm">
-                hello@jxing.tech<br/>
-                support@jxing.tech
-              </p>
+              <a href="mailto:hello@jxingtech.my" className="text-slate-500 dark:text-slate-400 text-sm hover:text-brand-azure dark:hover:text-brand-robin transition-colors font-medium">
+                hello@jxingtech.my
+              </a>
             </div>
 
             {/* Contact Card 3: Call */}
@@ -53,10 +52,12 @@ export const Contact: React.FC = () => {
                 <Phone size={28} />
               </div>
               <h3 className="text-lg font-bold text-brand-oxford dark:text-white mb-2">{t('contact.callUs')}</h3>
-              <p className="text-slate-500 dark:text-slate-400 text-sm">
-                +60 10-288 2827<br/>
-                Mon-Fri 9am-6pm
-              </p>
+              <div className="text-slate-500 dark:text-slate-400 text-sm flex flex-col items-center">
+                <a href="tel:+60102882827" className="hover:text-brand-azure dark:hover:text-brand-robin transition-colors font-medium mb-1">
+                  +60 10-288 2827
+                </a>
+                <span>Mon-Fri 9am-6pm</span>
+              </div>
             </div>
 
             {/* Contact Card 4: WhatsApp */}
@@ -134,7 +135,7 @@ export const Contact: React.FC = () => {
                      </div>
                      <div className="flex justify-between border-b border-white/10 pb-2">
                         <span>Saturday</span>
-                        <span className="font-semibold text-white">10:00 AM - 4:00 PM</span>
+                        <span className="font-semibold text-brand-robin">Closed</span>
                      </div>
                      <div className="flex justify-between">
                         <span>Sunday</span>
@@ -143,63 +144,19 @@ export const Contact: React.FC = () => {
                   </div>
                </div>
                
-               {/* Map with Pulsing Markers */}
-               <div className="rounded-3xl overflow-hidden h-[300px] border border-brand-oxford/10 dark:border-white/10 relative bg-slate-200 dark:bg-slate-700 group">
-                  <img 
-                    src="https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=2074&auto=format&fit=crop" 
-                    className="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500" 
-                    alt="Map Location" 
-                  />
-                  
-                  {/* Marker 1: HQ */}
-                  <div className="absolute top-[40%] left-[65%] group/marker">
-                      <div className="relative">
-                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-azure opacity-75"></span>
-                          <span className="relative inline-flex rounded-full h-4 w-4 bg-brand-azure border-2 border-white dark:border-brand-oxford"></span>
-                          
-                          {/* Tooltip */}
-                          <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-max bg-white dark:bg-brand-oxford text-xs rounded-lg shadow-xl p-3 opacity-0 group-hover/marker:opacity-100 transition-opacity duration-300 pointer-events-none z-10">
-                              <p className="font-bold text-brand-oxford dark:text-white">{t('contact.map.hq.name')}</p>
-                              <p className="text-slate-500">{t('contact.map.hq.location')}</p>
-                              <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-1 border-4 border-transparent border-t-white dark:border-t-brand-oxford"></div>
-                          </div>
-                      </div>
-                  </div>
-
-                  {/* Marker 2: Hub */}
-                  <div className="absolute top-[45%] left-[70%] group/marker">
-                      <div className="relative">
-                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-robin opacity-75"></span>
-                          <span className="relative inline-flex rounded-full h-3 w-3 bg-brand-robin border-2 border-white dark:border-brand-oxford"></span>
-                           {/* Tooltip */}
-                          <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-max bg-white dark:bg-brand-oxford text-xs rounded-lg shadow-xl p-3 opacity-0 group-hover/marker:opacity-100 transition-opacity duration-300 pointer-events-none z-10">
-                              <p className="font-bold text-brand-oxford dark:text-white">{t('contact.map.hub.name')}</p>
-                              <p className="text-slate-500">{t('contact.map.hub.role')}</p>
-                               <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-1 border-4 border-transparent border-t-white dark:border-t-brand-oxford"></div>
-                          </div>
-                      </div>
-                  </div>
-
-                   {/* Marker 3: Tech */}
-                  <div className="absolute top-[30%] left-[20%] group/marker">
-                      <div className="relative">
-                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-vermilion opacity-75"></span>
-                          <span className="relative inline-flex rounded-full h-3 w-3 bg-brand-xanthous border-2 border-white dark:border-brand-oxford"></span>
-                           {/* Tooltip */}
-                          <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-max bg-white dark:bg-brand-oxford text-xs rounded-lg shadow-xl p-3 opacity-0 group-hover/marker:opacity-100 transition-opacity duration-300 pointer-events-none z-10">
-                              <p className="font-bold text-brand-oxford dark:text-white">{t('contact.map.tech.name')}</p>
-                              <p className="text-slate-500">{t('contact.map.tech.location')}</p>
-                               <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-1 border-4 border-transparent border-t-white dark:border-t-brand-oxford"></div>
-                          </div>
-                      </div>
-                  </div>
-
-                  <div className="absolute inset-0 flex items-end justify-center pb-6 pointer-events-none">
-                     <div className="bg-white text-brand-oxford font-bold px-6 py-2 rounded-full shadow-lg flex items-center gap-2 transform translate-y-10 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-auto">
-                        <MapPin size={16} className="text-brand-azure" />
-                        {t('contact.viewOnMap')}
-                     </div>
-                  </div>
+               {/* Google Map Embed */}
+               <div className="rounded-3xl overflow-hidden h-[300px] border border-brand-oxford/10 dark:border-white/10 relative bg-slate-200 dark:bg-slate-700 shadow-lg">
+                  <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3983.834604675713!2d101.6846782147573!3d3.1383329977142713!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc49c71c069979%3A0x6769977255138090!2sQ%20Sentral!5e0!3m2!1sen!2smy!4v1709624000000!5m2!1sen!2smy" 
+                    width="100%" 
+                    height="100%" 
+                    style={{ border: 0 }} 
+                    allowFullScreen 
+                    loading="lazy" 
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="Q Sentral Location"
+                    className="w-full h-full grayscale hover:grayscale-0 transition-all duration-500"
+                  ></iframe>
                </div>
             </div>
 
