@@ -15,53 +15,53 @@ interface ClientLocation {
 
 // Standardized coordinates for a full width 2:1 Equirectangular map
 const CLIENTS: ClientLocation[] = [
-  { 
-    id: 'c1', 
-    name: 'TechStart Inc', 
-    location: 'San Francisco, USA', 
-    logo: 'https://logo.clearbit.com/stripe.com', 
-    top: '32%', 
-    left: '14%' 
+  {
+    id: 'c1',
+    name: 'TechStart Inc',
+    location: 'San Francisco, USA',
+    logo: 'https://logo.clearbit.com/stripe.com',
+    top: '44%',
+    left: '14%'
   },
-  { 
-    id: 'c2', 
-    name: 'FinNova Ltd', 
-    location: 'London, UK', 
-    logo: 'https://logo.clearbit.com/revolut.com', 
-    top: '23%', 
-    left: '48%' 
+  {
+    id: 'c2',
+    name: 'FinNova Ltd',
+    location: 'London, UK',
+    logo: 'https://logo.clearbit.com/revolut.com',
+    top: '22%',
+    left: '55%'
   },
-  { 
-    id: 'c3', 
-    name: 'Green Energy', 
-    location: 'Berlin, Germany', 
-    logo: 'https://logo.clearbit.com/siemens.com', 
-    top: '25%', 
-    left: '51%' 
+  {
+    id: 'c3',
+    name: 'Green Energy',
+    location: 'Berlin, Germany',
+    logo: 'https://logo.clearbit.com/siemens.com',
+    top: '33%',
+    left: '52%'
   },
-  { 
-    id: 'c4', 
-    name: 'Future Systems', 
-    location: 'Dubai, UAE', 
-    logo: 'https://logo.clearbit.com/emirates.com', 
-    top: '40%', 
-    left: '64%' 
+  {
+    id: 'c4',
+    name: 'Future Systems',
+    location: 'Dubai, UAE',
+    logo: 'https://logo.clearbit.com/emirates.com',
+    top: '51%',
+    left: '62%'
   },
-  { 
-    id: 'c5', 
-    name: 'APAC Trade', 
-    location: 'Singapore', 
-    logo: 'https://logo.clearbit.com/shopee.com', 
-    top: '58%', 
-    left: '78%' 
+  {
+    id: 'c5',
+    name: 'APAC Trade',
+    location: 'Singapore',
+    logo: 'https://logo.clearbit.com/shopee.com',
+    top: '63%',
+    left: '75%'
   },
-  { 
-    id: 'c6', 
-    name: 'CyberShield', 
-    location: 'Sydney, Australia', 
-    logo: 'https://logo.clearbit.com/atlassian.com', 
-    top: '78%', 
-    left: '92%' 
+  {
+    id: 'c6',
+    name: 'CyberShield',
+    location: 'Sydney, Australia',
+    logo: 'https://logo.clearbit.com/atlassian.com',
+    top: '83%',
+    left: '87%'
   },
 ];
 
@@ -70,46 +70,47 @@ export const GlobalPresence: React.FC = () => {
   const [activeClient, setActiveClient] = useState<string | null>(null);
 
   return (
-    <section className="relative bg-brand-ghost dark:bg-brand-oxford pb-24 pt-0 -mt-24 lg:-mt-64 transition-colors duration-300 overflow-visible z-20">
+    <section className="relative bg-brand-ghost dark:bg-brand-oxford pt-4 pb-24 transition-colors duration-300 overflow-visible z-40">
       <div className="container mx-auto px-6">
-        
+
+
         {/* Section Header */}
         <div className="text-center mb-8 relative z-10">
-           <Badge className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm border-brand-oxford/5 dark:border-white/5 shadow-sm">{t('home.globalPresence.title')}</Badge>
+          <Badge className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm border-brand-oxford/5 dark:border-white/5 shadow-sm">{t('home.globalPresence.title')}</Badge>
         </div>
 
         {/* Map Container - Hovering Effect */}
         <div className="relative w-full aspect-[2/1] max-w-6xl mx-auto">
-          
+
           {/* Map Image */}
           {/* Using opacity and blend modes to create the 'transparent' look requested */}
-          <img 
-            src="/download.png" 
-            alt="World Map" 
-            className="w-full h-full object-contain opacity-80 dark:opacity-60 dark:invert dark:hue-rotate-180 transition-all duration-500"
+          <img
+            src="/world-map.svg"
+            alt="World Map"
+            className="w-full h-full object-contain opacity-20 dark:opacity-30 dark:brightness-0 dark:invert transition-all duration-500"
           />
-          
+
           {/* Interactive Layer */}
           <div className="absolute inset-0 z-20">
             {CLIENTS.map((client) => (
-              <div 
+              <div
                 key={client.id}
                 className="absolute w-0 h-0 flex items-center justify-center"
                 style={{ top: client.top, left: client.left }}
               >
-                <div 
+                <div
                   className="relative group/marker cursor-pointer"
                   onMouseEnter={() => setActiveClient(client.id)}
                   onMouseLeave={() => setActiveClient(null)}
                 >
                   {/* Pulsing Marker - Dark Blue (Brand Marian) */}
                   <span className="relative flex h-4 w-4 lg:h-5 lg:w-5">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-marian dark:bg-brand-azure opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-4 w-4 lg:h-5 lg:w-5 bg-brand-marian dark:bg-brand-azure border-2 border-white dark:border-brand-oxford shadow-lg"></span>
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-marian dark:bg-brand-robin opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-4 w-4 lg:h-5 lg:w-5 bg-brand-marian dark:bg-brand-robin border-2 border-white dark:border-brand-oxford shadow-lg"></span>
                   </span>
 
                   {/* Hover Tooltip */}
-                  <div 
+                  <div
                     className={`
                       absolute left-1/2 -translate-x-1/2 bottom-full mb-4 w-72 
                       bg-white/90 dark:bg-brand-oxford/90 backdrop-blur-md 
@@ -128,17 +129,17 @@ export const GlobalPresence: React.FC = () => {
                             {client.name}
                           </h4>
                           <div className="flex items-center gap-1.5 text-[11px] font-medium text-brand-azure dark:text-brand-robin uppercase tracking-wide">
-                             <Globe size={10} />
-                             {client.location}
+                            <Globe size={10} />
+                            {client.location}
                           </div>
                         </div>
                       </div>
-                      
+
                       <p className="text-xs text-slate-500 dark:text-slate-300 leading-relaxed font-light border-t border-brand-oxford/5 dark:border-white/5 pt-3">
-                         {t(`home.globalPresence.clients.${client.id}`)}
+                        {t(`home.globalPresence.clients.${client.id}`)}
                       </p>
                     </div>
-                    
+
                     {/* Tooltip Arrow */}
                     <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-px border-[8px] border-transparent border-t-white/90 dark:border-t-brand-oxford/90"></div>
                   </div>
@@ -148,15 +149,18 @@ export const GlobalPresence: React.FC = () => {
           </div>
 
         </div>
-        
-        {/* Footer Text */}
-        <div className="text-center mt-12">
-           <p className="text-sm text-slate-400 dark:text-slate-500 font-light">
-              Trusted by leading companies in 25+ countries worldwide.
-           </p>
+
+        {/* Footer Text & Header */}
+        <div className="text-center mt-12 relative z-10">
+
+
+          <p className="text-sm text-slate-400 dark:text-slate-500 font-light">
+            Trusted by leading companies in 25+ countries worldwide.
+          </p>
         </div>
 
       </div>
     </section>
   );
 };
+
